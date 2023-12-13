@@ -64,7 +64,8 @@ CREATE TABLE customers (
     balance FLOAT DEFAULT 0
 );
 
-**Notes**
+**Notes**:  
+
 This project is a simple demonstration and may not cover all aspects of a production-grade banking system.
 Future enhancements to the project may include:
 - User Authentication: Implementing user authentication for secure customer data access.
