@@ -57,7 +57,8 @@ Access the API at http://localhost:8000 , it can be over-ridden through configs
 
 Dependencies
 Gofr: https://gofr.dev
-Database Schema
+
+Database Schema : 
 The application uses a MySQL database with the following schema:
 
 sql
