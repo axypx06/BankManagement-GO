@@ -68,7 +68,6 @@ CREATE TABLE customers (
 
 This project is a simple demonstration and may not cover all aspects of a production-grade banking system.
 Future enhancements to the project may include:
-- customer / Admin mode
 - User Authentication: Implementing user authentication and middlewares for secure customer data access.
 - Enhanced Transactions: Extending transaction capabilities to include more complex financial operations.
   
