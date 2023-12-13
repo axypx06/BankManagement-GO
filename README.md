@@ -2,7 +2,8 @@
 
 This is a simple Bank Management System implemented in Go using the Gofr framework. The system provides basic functionality to manage customer accounts, including creating accounts, retrieving account information, updating customer details, and handling financial transactions such as depositing and withdrawing money.
 
-![image](https://github.com/axypx06/BankManagement-GO/assets/110666919/21f07223-5047-4e28-b250-07d77f12790c)
+![image](https://github.com/axypx06/BankManagement-GO/assets/110666919/b01c06e2-0e02-4a56-b15e-b0d302fb323a)
+
 
 
 Prerequisites
