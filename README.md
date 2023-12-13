@@ -46,7 +46,7 @@ Withdraws money from a customer's account. Requires a JSON payload with the bala
 Usage
 
 - Clone the repository:
-git clone https://github.com/axypx06/BankManagement-GO.git
+git clone [https://github.com/axypx06/BankManagement-GO.git](https://github.com/axypx06/BankManagement-GO)
 
 - Navigate to the project directory:
 cd BankManagement
