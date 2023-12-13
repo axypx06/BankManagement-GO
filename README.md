@@ -1,4 +1,5 @@
-Bank Management System
+**Bank Management System**
+
 This is a simple Bank Management System implemented in Go using the Gofr framework. The system provides basic functionality to manage customer accounts, including creating accounts, retrieving account information, updating customer details, and handling financial transactions such as depositing and withdrawing money.
 
 Prerequisites
