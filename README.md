@@ -22,19 +22,19 @@ API Endpoints
 - GET /greet
 Returns a greeting message stored in Redis.
 
-- GET /customer
+- GET /admin
 Returns information about all customers.
 
-- GET /customer/{id}
+- GET /admin/{id}
 Returns information about a specific customer based on the provided ID.
 
-- POST /customer/{name}
+- POST /admin/{name}
 Creates a new customer account with the given name.
 
-- DELETE /customer/{id}
+- DELETE /admin/{id}
 Deletes a customer account based on the provided ID.
 
-- PUT /customer/{id}
+- PUT /admin/{id}
 Updates the name of a customer based on the provided ID.
 
 - PUT /customer/{id}/add
