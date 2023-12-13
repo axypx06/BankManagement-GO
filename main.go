@@ -17,10 +17,10 @@ func main() {
 	// initialise gofr object
 	app := gofr.New()
 	app.GET("/greet", HelloHandler)
-	app.GET("/customer", GetCustomer)
+	app.GET("/admin", GetCustomer)
 	app.GET("/customer/{id}", GetCustomerByID)
-	app.POST("/customer/{name}", CreateCustomer)
-	app.DELETE("/customer/{id}", DeleteCustomer)
+	app.POST("/admin/{name}", CreateCustomer)
+	app.DELETE("/admin/{id}", DeleteCustomer)
 	app.PUT("/customer/{id}", UpdateCustomer)
 	app.PUT("/customer/{id}/add", AddMoney)
 	app.PUT("/customer/{id}/withdraw", WithdrawMoney)
