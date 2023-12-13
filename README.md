@@ -1,6 +1,7 @@
 **Bank Management System**
 
 This is a simple Bank Management System implemented in Go using the Gofr framework. The system provides basic functionality to manage customer accounts, including creating accounts, retrieving account information, updating customer details, and handling financial transactions such as depositing and withdrawing money.
+
 ![image](https://github.com/axypx06/BankManagement-GO/assets/110666919/0825bce6-ef60-4682-a72f-77e51bfbf40d)
 
 Prerequisites
@@ -9,11 +10,11 @@ Prerequisites
 - Postman for testing API requests
   
 Features
-- Create Customer Account: Add a new customer to the system.
-- Retrieve Customer Information: Get details of all customers or a specific customer by ID.
-- Update Customer Details: Modify the name of a customer.
-- Deposit Money: Increase the account balance.
-- Withdraw Money: Decrease the account balance, with checks for negative balance and sufficient funds.
+- Create Customer Account: Admin can Add a new customer to the system.
+- Retrieve Customer Information: Admin can Get details of all customers or a specific customer by ID.
+- Update Customer Details: Admin can Modify the name of a customer.
+- Deposit Money: customer add money to the account balance.
+- Withdraw Money: customer withdraws the money from account balance, with checks for negative balance and sufficient funds.
 
 API Endpoints
 - GET /greet
