@@ -18,7 +18,7 @@ func main() {
 	app := gofr.New()
 	app.GET("/greet", HelloHandler)
 	app.GET("/admin", GetCustomer)
-	app.GET("/customer/{id}", GetCustomerByID)
+	app.GET("/admin/{id}", GetCustomerByID)
 	app.POST("/admin/{name}", CreateCustomer)
 	app.DELETE("/admin/{id}", DeleteCustomer)
 	app.PUT("/customer/{id}", UpdateCustomer)
