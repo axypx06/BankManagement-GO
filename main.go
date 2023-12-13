@@ -21,7 +21,7 @@ func main() {
 	app.GET("/admin/{id}", GetCustomerByID)
 	app.POST("/admin/{name}", CreateCustomer)
 	app.DELETE("/admin/{id}", DeleteCustomer)
-	app.PUT("/customer/{id}", UpdateCustomer)
+	app.PUT("/admin/{id}", UpdateCustomer)
 	app.PUT("/customer/{id}/add", AddMoney)
 	app.PUT("/customer/{id}/withdraw", WithdrawMoney)
 
