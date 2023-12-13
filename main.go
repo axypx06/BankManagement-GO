@@ -143,7 +143,7 @@ func WithdrawMoney(ctx *gofr.Context) (interface{}, error) {
 	}
 
 	// Update the balance after withdrawal
-	_, err = ctx.DB().ExecContext(ctx, "UPDATE accounts SET balance = balance - ? WHERE id = ?", withdrawalData.Balance, customerID)
+	_, err = ctx.DB().ExecContext(ctx, "UPDATE customers SET balance = balance - ? WHERE id = ?", withdrawalData.Balance, customerID)
 	if err != nil {
 		return nil, err
 	}
