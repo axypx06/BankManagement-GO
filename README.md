@@ -53,7 +53,7 @@ cd BankManagement
 
 - Run the application:
 go run main.go
-Access the API at http://localhost:8000
+Access the API at http://localhost:8000 , it can be over-ridden through configs
 
 Dependencies
 Gofr: https://gofr.dev
