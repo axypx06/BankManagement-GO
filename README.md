@@ -64,8 +64,12 @@ CREATE TABLE customers (
     balance FLOAT DEFAULT 0
 );
 
-Notes
+**Notes**
 This project is a simple demonstration and may not cover all aspects of a production-grade banking system.
+Future enhancements to the project may include:
+- User Authentication: Implementing user authentication for secure customer data access.
+- Enhanced Transactions: Extending transaction capabilities to include more complex financial operations.
+  
 I have used docker to connect mysql and redis and used postman for testing API requests.
 Feel free to contribute and enhance the features of this Bank Management System. If you encounter any issues or have suggestions, please open an issue on GitHub.
 
