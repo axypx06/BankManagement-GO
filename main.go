@@ -2,7 +2,6 @@ package main
 
 import (
 	"encoding/json"
-	"errors"
 
 	"gofr.dev/pkg/gofr"
 )
@@ -14,7 +13,7 @@ type Customer struct {
 }
 
 func main() {
-	
+	// initialise gofr object
 	app := gofr.New()
 	app.GET("/greet", HelloHandler)
 	app.GET("/admin/viewCustomer", GetCustomer)
@@ -24,7 +23,6 @@ func main() {
 	app.PUT("/admin/update/{id}", UpdateCustomer)
 	app.PUT("/customer/{id}/add", AddMoney)
 	app.PUT("/customer/{id}/withdraw", WithdrawMoney)
-
 
 	// Starts the server, it will listen on the default port 8000.
 	// it can be over-ridden through configs
@@ -85,7 +83,6 @@ func DeleteCustomer(ctx *gofr.Context) (interface{}, error) {
 }
 
 func UpdateCustomer(ctx *gofr.Context) (interface{}, error) {
-
 	customerID := ctx.PathParam("id")
 
 	var updateData struct {
@@ -95,11 +92,19 @@ func UpdateCustomer(ctx *gofr.Context) (interface{}, error) {
 		return nil, err
 	}
 
+	if updateData.Name == "" {
+		return map[string]string{"msg": "fail"}, nil
+	}
+
+	
 	_, err := ctx.DB().ExecContext(ctx, "UPDATE customers SET name = ? WHERE id = ?", updateData.Name, customerID)
+	if err != nil {
+		return nil, err
+	}
 
-	return nil, err
+	// Return a success response
+	return map[string]string{"msg": "success"}, nil
 }
-
 func AddMoney(ctx *gofr.Context) (interface{}, error) {
 
 	customerID := ctx.PathParam("id")
@@ -111,11 +116,13 @@ func AddMoney(ctx *gofr.Context) (interface{}, error) {
 		return nil, err
 	}
 	if updateBalance.Balance < 0 {
-		return nil, errors.New("Balance cannot be negative")
+		return map[string]string{"msg": "negative balance"}, nil
 	}
 	_, err := ctx.DB().ExecContext(ctx, "UPDATE customers SET balance = balance + ? WHERE id = ?", updateBalance.Balance, customerID)
-
-	return nil, err
+	if err != nil {
+		return nil, err
+	}
+	return map[string]string{"msg": "success"}, nil
 }
 func WithdrawMoney(ctx *gofr.Context) (interface{}, error) {
 	customerID := ctx.PathParam("id")
@@ -126,13 +133,10 @@ func WithdrawMoney(ctx *gofr.Context) (interface{}, error) {
 	if err := json.NewDecoder(ctx.Request().Body).Decode(&withdrawalData); err != nil {
 		return nil, err
 	}
-
-	// Check if the withdrawal amount is not negative
 	if withdrawalData.Balance < 0 {
-		return nil, errors.New("Withdrawal amount cannot be negative")
+		return map[string]string{"msg": "negative amount"}, nil
 	}
 
-	// Check if there is sufficient balance for withdrawal
 	var currentBalance float64
 	err := ctx.DB().QueryRowContext(ctx, "SELECT balance FROM customers WHERE id = ?", customerID).Scan(&currentBalance)
 	if err != nil {
@@ -140,14 +144,13 @@ func WithdrawMoney(ctx *gofr.Context) (interface{}, error) {
 	}
 
 	if currentBalance < withdrawalData.Balance {
-		return nil, errors.New("Insufficient balance for withdrawal")
+		return map[string]string{"msg": "Insuffcient Balance"}, nil
 	}
 
-	// Update the balance after withdrawal
 	_, err = ctx.DB().ExecContext(ctx, "UPDATE customers SET balance = balance - ? WHERE id = ?", withdrawalData.Balance, customerID)
 	if err != nil {
 		return nil, err
 	}
 
-	return nil, nil
+	return map[string]string{"msg": "success"}, nil
 }
