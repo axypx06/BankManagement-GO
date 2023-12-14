@@ -14,16 +14,17 @@ type Customer struct {
 }
 
 func main() {
-	// initialise gofr object
+	
 	app := gofr.New()
 	app.GET("/greet", HelloHandler)
-	app.GET("/admin", GetCustomer)
-	app.GET("/admin/{id}", GetCustomerByID)
-	app.POST("/admin/{name}", CreateCustomer)
-	app.DELETE("/admin/{id}", DeleteCustomer)
-	app.PUT("/admin/{id}", UpdateCustomer)
+	app.GET("/admin/viewCustomer", GetCustomer)
+	app.GET("/admin/viewCustomer/{id}", GetCustomerByID)
+	app.POST("/admin/addCustomer/{name}", CreateCustomer)
+	app.DELETE("/admin/deleteCustomer/{id}", DeleteCustomer)
+	app.PUT("/admin/update/{id}", UpdateCustomer)
 	app.PUT("/customer/{id}/add", AddMoney)
 	app.PUT("/customer/{id}/withdraw", WithdrawMoney)
+
 
 	// Starts the server, it will listen on the default port 8000.
 	// it can be over-ridden through configs
