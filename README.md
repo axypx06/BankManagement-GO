@@ -1,6 +1,8 @@
 **Bank Management System**
 
-This is a simple Bank Management System implemented in Go using the Gofr framework. The system provides basic functionality to manage customer accounts, including creating accounts, retrieving account information, updating customer details, and handling financial transactions such as depositing and withdrawing money.
+- This is a simple Bank Management System HTTP (REST) API implemented in Go using the Gofr framework. The system provides basic functionality to manage customer accounts, including creating accounts, retrieving account information, updating customer details, and handling financial transactions such as depositing and withdrawing money.
+- I have used docker to connect mysql and redis and used postman for testing API requests.
+- Unit Test Coverage > 60%
 
 ![image](https://github.com/axypx06/BankManagement-GO/assets/110666919/b01c06e2-0e02-4a56-b15e-b0d302fb323a)
 
@@ -22,19 +24,19 @@ API Endpoints
 - GET /greet
 Returns a greeting message stored in Redis.
 
-- GET /admin
+- GET /admin/viewCustomer
 Returns information about all customers.
 
-- GET /admin/{id}
+- GET /admin/viewCustomer/{id}
 Returns information about a specific customer based on the provided ID.
 
-- POST /admin/{name}
+- POST /admin/addCustomer/{name}
 Creates a new customer account with the given name.
 
-- DELETE /admin/{id}
+- DELETE /admin/deleteCustomer/{id}
 Deletes a customer account based on the provided ID.
 
-- PUT /admin/{id}
+- PUT /admin/updateCustomer/{id}
 Updates the name of a customer based on the provided ID.
 
 - PUT /customer/{id}/add
@@ -76,8 +78,8 @@ Future enhancements to the project may include:
 - User Authentication: Implementing user authentication and middlewares for secure customer data access.
 - Enhanced Transactions: Extending transaction capabilities to include more complex financial operations.
   
-I have used docker to connect mysql and redis and used postman for testing API requests.
-Feel free to contribute and enhance the features of this Bank Management System. If you encounter any issues or have suggestions, please open an issue on GitHub.
+
+
 
 
 
