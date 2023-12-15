@@ -71,7 +71,11 @@ func CreateCustomer(ctx *gofr.Context) (interface{}, error) {
 
 	_, err := ctx.DB().ExecContext(ctx, "INSERT INTO customers (name) VALUES (?)", name)
 
-	return nil, err
+	if err != nil {
+		return nil, err
+	}
+
+	return map[string]string{"msg": "success"}, nil
 }
 
 func DeleteCustomer(ctx *gofr.Context) (interface{}, error) {
@@ -80,6 +84,7 @@ func DeleteCustomer(ctx *gofr.Context) (interface{}, error) {
 	_, err := ctx.DB().ExecContext(ctx, "DELETE FROM customers WHERE id = ?", customerID)
 
 	return nil, err
+
 }
 
 func UpdateCustomer(ctx *gofr.Context) (interface{}, error) {
@@ -96,7 +101,7 @@ func UpdateCustomer(ctx *gofr.Context) (interface{}, error) {
 		return map[string]string{"msg": "fail"}, nil
 	}
 
-	
+	// Update the customer's name in the database
 	_, err := ctx.DB().ExecContext(ctx, "UPDATE customers SET name = ? WHERE id = ?", updateData.Name, customerID)
 	if err != nil {
 		return nil, err
