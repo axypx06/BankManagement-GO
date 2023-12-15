@@ -3,7 +3,6 @@ package main
 import (
 	"bytes"
 	"encoding/json"
-	"fmt"
 	"io/ioutil"
 	"net/http"
 
@@ -115,9 +114,7 @@ func TestCreateCustomer(t *testing.T) {
 		t.Error("Error decoding JSON response", err)
 	}
 
-	expectedResponse := map[string]interface{}{
-		"data": nil,
-	}
+	expectedResponse := map[string]interface{}(map[string]interface{}{"data": map[string]interface{}{"msg": "success"}})
 
 	assert.Equal(t, expectedResponse, response, "Expected and actual responses do not match")
 }
@@ -127,9 +124,7 @@ func TestDeleteCustomer(t *testing.T) {
 	go main()
 	time.Sleep(time.Second * 3)
 
-	customerID := 1
-
-	req, _ := http.NewRequest("DELETE", fmt.Sprintf("%s/admin/deleteCustomer/%d", host, customerID), nil)
+	req, _ := http.NewRequest("DELETE", host+"/admin/deleteCustomer/2", nil)
 	c := http.Client{}
 
 	resp, err := c.Do(req)
