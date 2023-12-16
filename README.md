@@ -23,27 +23,44 @@ Features
 API Endpoints
 - GET /greet
 Returns a greeting message stored in Redis.
+![image](https://github.com/axypx06/BankManagement-GO/assets/110666919/39237caf-d92b-4f88-83f2-a4ff2f0f774c)
+
 
 - GET /admin/viewCustomer
 Returns information about all customers.
+![image](https://github.com/axypx06/BankManagement-GO/assets/110666919/29e1da1f-5078-4400-918a-12a64fd446dc)
+
 
 - GET /admin/viewCustomer/{id}
 Returns information about a specific customer based on the provided ID.
+![image](https://github.com/axypx06/BankManagement-GO/assets/110666919/dcaa14ee-c335-4a3d-aa2b-54e83a1edf55)
+
 
 - POST /admin/addCustomer/{name}
 Creates a new customer account with the given name.
+![image](https://github.com/axypx06/BankManagement-GO/assets/110666919/babcc8d3-5912-4e12-8a52-848589184735)
+
 
 - DELETE /admin/deleteCustomer/{id}
 Deletes a customer account based on the provided ID.
+![image](https://github.com/axypx06/BankManagement-GO/assets/110666919/4ee70804-6a99-47e1-85af-bbb060aa67fa)
 
-- PUT /admin/updateCustomer/{id}
+
+
+- PUT /admin/update/{id}
 Updates the name of a customer based on the provided ID.
+![image](https://github.com/axypx06/BankManagement-GO/assets/110666919/4a7b2afe-d2f0-445b-ae62-d68a136b9787)
+
 
 - PUT /customer/{id}/add
 Adds money to a customer's account. Requires a JSON payload with the balance field.
+![image](https://github.com/axypx06/BankManagement-GO/assets/110666919/fe5ad649-42c4-4c0f-a73c-b8f51833a7aa)
+
 
 - PUT /customer/{id}/withdraw
 Withdraws money from a customer's account. Requires a JSON payload with the balance field.
+![image](https://github.com/axypx06/BankManagement-GO/assets/110666919/5bca2977-a417-45fb-bce6-89a56b861ada)
+
 
 Usage
 
@@ -70,6 +87,8 @@ CREATE TABLE customers (
     name VARCHAR(255) NOT NULL,
     balance FLOAT DEFAULT 0
 );
+![image](https://github.com/axypx06/BankManagement-GO/assets/110666919/c458acbc-0421-4d58-ac2a-0705d5d12f34)
+
 
 **Notes**:  
 
